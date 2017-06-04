@@ -1,0 +1,271 @@
+@import "bourbon"
+@import "fonts"
+@import "libs"
+@import "vars"
+
+
+*
+	outline: none
+	// transition: all 0.3s ease
+	//transition: transform 0s
+	//-webkit-user-select: none
+	//-moz-user-select: none
+	//-ms-user-select: none
+	//transition: color 0.3s ease, border-color 0.3s ease, opacity 0.9s ease
+
+*::-webkit-input-placeholder
+	color: #666
+	opacity: 1
+
+*:-moz-placeholder
+	color: #666
+	opacity: 1
+
+*::-moz-placeholder
+	color: #666
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #666
+	opacity: 1
+
+
+
+
+// :: PULSE Preloader
+// --------------------------------------------------
+
+.preload
+	*
+		-webkit-transition: none !important
+		-moz-transition: none !important
+		-ms-transition: none !important
+		-o-transition: none !important
+
+.pulse
+	position: relative
+	left: 50%
+	top: 50vh
+	margin-left: -40px
+	margin-top: -40px
+	&:before
+		-webkit-animation: pulse-outer .8s ease-in infinite
+		animation: pulse-outer .8s ease-in infinite
+	&:after, &:before
+		content: ''
+		border: 5px solid #323232
+		width: 80px
+		height: 80px
+		-webkit-border-radius: 500px
+		border-radius: 500px
+		position: absolute
+	&:after
+		-webkit-animation: pulse-inner .8s linear infinite
+		animation: pulse-inner .8s linear infinite
+
+//keyframes Start
+@mixin opacity($opacity)
+	opacity: $opacity / 100
+	filter: alpha(opacity=$opacity)
+
+@include keyframes('pulse-outer')
+	0%
+		@include opacity(100)
+	50%
+		@include opacity(50)
+	100%
+		@include opacity(0)
+
+
+@include keyframes('pulse-inner')
+	0%
+		@include transform(scale(0))
+		@include opacity(0)
+	100%
+		@include transform(scale(1))
+		@include opacity(100)
+
+
+
+@include keyframes(fadeIn)
+	from
+		@include transform(scale(0))
+	to
+		@include transform(scale(1))
+
+@include keyframes(LeftToRight)
+	0%
+		left: -500px
+		opacity: 0
+		animation-delay: 1s
+	50%
+		left: 0px
+		opacity: 1
+
+
+@include keyframes(flyBtn)
+	0%
+		@include transform(translateX(0) translateY(0))
+		animation-timing-function: ease-in
+		animation-delay: 0s
+	50%
+		@include transform(translateX(22%) translateY(10%))
+		animation-timing-function: ease-out
+		animation-delay: 0s
+	100%
+		@include transform(translateX(40%) translateY(0%))
+		animation-timing-function: ease-in
+		animation-delay: 0s
+
+@include keyframes(blik)
+	0%
+		background: linear-gradient(to left, rgba(255,255,255,.0), rgba(255,255,255,.8), rgba(255,255,255,.0)) no-repeat -2em 0%;
+		background-size: 2em 100%;
+	35%
+		transition: 1.5s linear
+		background-position: 250% 0%
+//keyframes End
+
+.preloader
+	position: fixed
+	top: 0
+	left: 0
+	bottom: 0
+	right: 0
+	background-color: #151515
+	z-index: 100
+	&.done
+		display: none
+
+body
+	background: #2f3336
+
+h1, .h1
+	font-family: TTWallsRoughBold, ProximaNova-Black, sans-serif
+	font-size: 110px
+	color: #ffffff
+	margin: 0px
+h2, .h2
+	font-family: ProximaNova-Black, sans-serif
+	font-size: 55px
+	color: #ffffff
+h3, .h3
+	font-family: ProximaNovaCond-Bold, sans-serif
+	font-size: 31px
+	color: #ffffff
+h4, .h4
+	font-family: ProximaNova-Bold, sans-serif
+	font-size: 24px
+	color: #ffffff
+h5, .h5
+	font-family: ProximaNovaCond-Regular, sans-serif
+	font-size: 14px
+	color: #3270f9
+	letter-spacing: 3px
+p
+	font-family: ProximaNovaCond-Regular, sans-serif
+	font-size: 17px
+	color: #ffffff
+a
+	font-family: ProximaNova-Bold, sans-serif
+
+.more
+	font-size: 36px
+	font-family: TTWallsRoughBold
+	color: #ffffff
+header
+	min-height: 700px
+	background-size: cover
+	height: 100vh
+	background-position: center
+	.fa-mobile
+		color: #ffffff
+		font-size: 31px
+		display: inline-block
+	.top-line
+		position: absolute
+		right: 0px
+		left: 0px
+		top: 37px
+		z-index: 1
+		.logo
+			display: inline-block
+
+		.descr
+			display: inline-block
+			p
+				display: inline-block
+				width: 297px
+				font-size: 14px
+				padding-left: 22px
+				border-left: solid 1px #ffffff
+				position: relative
+		.logo
+			margin-left: 98px
+			position: relative
+			margin-right: 32px
+		.phone
+			color: #ffffff
+			line-height: 31px
+			vertical-align: middle
+			display: inline-block
+			padding-left: 20px
+			text-align: right
+			display: inline-block
+			position: absolute
+			right: 116px
+			padding-top: 28px
+			font-size: 17px
+			font-family: ProximaNovaCond-Regular, sans-serif
+			&:hover, &:focus
+				opacity: 0.7
+				text-decoration: none
+			&:before
+				content: ''
+				font-family: FontAwesome
+				font-size: 31px
+				position: absolute
+				left: 0px
+				color: #62696f
+
+.header-flex
+	display: flex
+	height: 100%
+	position: relative
+	top: 0
+
+.flex-center
+	margin: auto
+.header-composition
+	position: relative
+	.blue-btn
+		margin-top: 47px
+
+.blue-btn
+	background-color: #3270f9
+	color: #ffffff
+	padding: 22px 30px
+	font-size: 17px
+	border-radius: 40px
+	text-transform: uppercase
+	display: inline-block
+	&:hover, &:focus
+		text-decoration: none
+		color: #ffffff
+		background-color: darken(#3270f9, 5)
+
+//Hamburgers customize
+.hamburger-inner, .hamburger-inner:after, .hamburger-inner:before
+	background-color: #fff
+	border-radius: 0
+	height: 2px
+
+.hamburger
+	position: absolute
+	right: 10px
+	top: 15px
+	z-index: 3
+
+//mmenu
+#menu-btn
+	z-index: 2
