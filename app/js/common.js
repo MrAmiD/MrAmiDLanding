@@ -1,4 +1,28 @@
+function parallax() {
+	var st = $(this).scrollTop();
+	//st = st - $(".parallax-upper").position().top;
+	$(".parallax-upper.wood").css({
+		"transform" : "translate(0%, -" + st/20 + "%"
+	});
+	st = st + 1000;
+	$(".parallax-upper.juice").css({
+		"transform" : "translate(0%, -" + st/20 + "%"
+	});
+	$(".parallax-upper.eyeglasses").css({
+		"transform" : "translate(0%, " + st/20 + "%"
+	});
+
+	st = st + 1000;
+	$(".parallax-upper.mouse").css({
+		"transform" : "translate(0%, " + st/20 + "%"
+	});
+}
+$(window).scroll(function () {
+	parallax();
+});
+
 $(function() {
+	parallax();
 	// $(document).on("click","#menu-btn", function(event){
 	// 	if($(this).hasClass('is-active')){
 	// 		$(this).removeClass('is-active');
