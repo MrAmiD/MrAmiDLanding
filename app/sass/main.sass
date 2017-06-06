@@ -190,6 +190,7 @@ header
 	background-size: cover
 	height: 100vh
 	background-position: center
+	@include background-image(linear-gradient(bottom, #2f3335 0%, #2f3335 0%, rgba(47,51,54,.44) 14.36%, rgba(47,51,54,0) 100%)) // gradient overlay
 	.fa-mobile
 		color: #ffffff
 		font-size: 31px
@@ -302,6 +303,9 @@ header
 #advantages
 	padding-left: 25px
 	padding-bottom: 40px
+	-moz-box-shadow: 6px 7px 18px #000
+	-webkit-box-shadow: 6px 7px 18px #000
+	box-shadow: 6px 7px 18px #000
 //parallax
 .parallax-cont
 	position: relative
@@ -328,14 +332,23 @@ header
 	.item
 		border-radius: 10px
 		height: 328px
-		border: solid 1px #016f3e
+		border: solid 1px #62696f
 		background-size: cover
 		margin-bottom: 30px
 		position: relative
+		-moz-box-shadow: 6px 7px 18px #000
+		-webkit-box-shadow: 6px 7px 18px #000
+		box-shadow: 6px 7px 18px #000
+		transition: box-shadow 0.5s ease
+		&:hover
+			-moz-box-shadow: 6px 7px 18px #62696f
+			-webkit-box-shadow: 6px 7px 18px #62696f
+			box-shadow: 6px 7px 18px #62696f
+			cursor: pointer
 		&.two-itemsHeight
 			height: 686px
 		.port_title
-			padding: 30px 15px
+			padding: 20px 15px
 			position: absolute
 			bottom: 0px
 			background: #ffffff
@@ -361,13 +374,20 @@ header
 				border-radius: 50%
 				right: 40px
 				cursor: pointer
+				-moz-box-shadow: 6px 7px 18px #000
+				-webkit-box-shadow: 6px 7px 18px #000
+				box-shadow: 6px 7px 18px #000
+				text-align: center
+				vertical-align: middle
 				&:after
 					content: ''
 					font-family: FontAwesome
 					color: #ffffff
 					position: relative
 					font-size: 27px
-					top: 13px
-					left: 17px
+					top: 14px
+				&:hover:after
+					font-size: 33px
+					top: 10px
 #my-footer
 	margin-top: 1500px
