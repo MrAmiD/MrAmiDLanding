@@ -4,7 +4,7 @@ function parallax() {
 	$(".parallax-upper.wood").css({
 		"transform" : "translate(0%, -" + st/20 + "%"
 	});
-	st = st + 1000;
+	st = st+1000;
 	$(".parallax-upper.juice").css({
 		"transform" : "translate(0%, -" + st/20 + "%"
 	});

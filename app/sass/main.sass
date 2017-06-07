@@ -11,7 +11,7 @@
 	//-webkit-user-select: none
 	//-moz-user-select: none
 	//-ms-user-select: none
-	//transition: color 0.3s ease, border-color 0.3s ease, opacity 0.9s ease
+	transition: color 0.3s ease, border-color 0.3s ease, opacity 0.9s ease
 
 *::-webkit-input-placeholder
 	color: #666
@@ -190,7 +190,14 @@ header
 	background-size: cover
 	height: 100vh
 	background-position: center
-	@include background-image(linear-gradient(bottom, #2f3335 0%, #2f3335 0%, rgba(47,51,54,.44) 14.36%, rgba(47,51,54,0) 100%)) // gradient overlay
+	&:after
+		content: ' '
+		@include background-image(linear-gradient(bottom, #2f3335 0%, #2f3335 0%, rgba(47,51,54,.44) 14.36%, rgba(47,51,54,0) 100%)) // gradient overlay
+		position: absolute
+		width: 100%
+		height: 100vh
+		z-index: 0
+		top: 0
 	.fa-mobile
 		color: #ffffff
 		font-size: 31px
@@ -251,13 +258,14 @@ header
 	margin: auto
 .header-composition
 	position: relative
+	z-index: 1
 	.blue-btn
 		margin-top: 47px
 
 .blue-btn
 	background-color: #3270f9
 	color: #ffffff
-	padding: 22px 30px
+	padding: 17px 30px
 	font-size: 17px
 	border-radius: 40px
 	text-transform: uppercase
@@ -266,6 +274,18 @@ header
 		text-decoration: none
 		color: #ffffff
 		background-color: darken(#3270f9, 5)
+.pink-btn
+	background-color: #ff0059
+	color: #ffffff
+	padding: 17px 30px
+	font-size: 17px
+	border-radius: 40px
+	text-transform: uppercase
+	display: inline-block
+	&:hover, &:focus
+		text-decoration: none
+		color: #ffffff
+		background-color: darken(#ff0059, 5)
 
 //Hamburgers customize
 .hamburger-inner, .hamburger-inner:after, .hamburger-inner:before
@@ -284,6 +304,8 @@ header
 	z-index: 2
 
 //About
+.about
+	margin-top: 60px
 .logos
 	padding-top: 29px
 	max-width: 100%
@@ -329,6 +351,8 @@ header
 
 //portfolio
 #portfolio
+	h2
+		margin-bottom: 17px
 	.item
 		border-radius: 10px
 		height: 328px
@@ -340,6 +364,7 @@ header
 		-webkit-box-shadow: 6px 7px 18px #000
 		box-shadow: 6px 7px 18px #000
 		transition: box-shadow 0.5s ease
+		background-size: cover
 		&:hover
 			-moz-box-shadow: 6px 7px 18px #62696f
 			-webkit-box-shadow: 6px 7px 18px #62696f
@@ -389,5 +414,155 @@ header
 				&:hover:after
 					font-size: 33px
 					top: 10px
+
+//price
+#price
+	.owl-prev, .owl-next
+		display: inline-block
+		cursor: pointer
+	ul
+		padding-left: 0px
+		li
+			display: inline-block
+			padding-right: 50px
+			position: relative
+			&.active
+				.point
+					color: #ffffff!important
+					border-bottom: solid 2px #3270f9
+			.point
+				color: #62696f
+				font-family: ProximaNovaCond-Regular, sans-serif
+				font-size: 24px
+				padding-left: 20px
+				line-height: 31px
+				vertical-align: middle
+				display: inline-block
+				padding-left: 52px
+				text-align: right
+				padding-bottom: 10px
+				border-bottom: solid 2px transparent
+				transition: border-bottom-color 0.5s ease
+				cursor: pointer
+				&:before
+					position: absolute
+					display: inline-block
+					left: 0px
+				&:hover, &:focus
+					text-decoration: none
+					border-bottom: solid 2px #3270f9
+					color: #a2a8ad
+				&.active:before
+					color: #ffffff !important
+			&:nth-child(1)
+				.point:before
+					content: ''
+					font-family: FontAwesome
+					font-size: 30px
+					color: #62696f
+			&:nth-child(2)
+				.point:before
+					content: ''
+					font-family: FontAwesome
+					font-size: 30px
+					color: #62696f
+			&:nth-child(3)
+				.point:before
+					content: ''
+					font-family: FontAwesome
+					font-size: 30px
+					color: #62696f
+
+
+	.price-card
+		border-radius: 10px
+		height: 666px
+		border: solid 1px #62696f
+		background-size: cover
+		margin-bottom: 30px
+		position: relative
+		-moz-box-shadow: 6px 7px 18px #000
+		-webkit-box-shadow: 6px 7px 18px #000
+		box-shadow: 6px 7px 18px #000
+		transition: box-shadow 0.5s ease
+		background-size: cover
+		margin-top: 25px
+		&:hover
+			-moz-box-shadow: 6px 7px 18px #62696f
+			-webkit-box-shadow: 6px 7px 18px #62696f
+			box-shadow: 6px 7px 18px #62696f
+			cursor: pointer
+		.port_title
+			padding: 20px 15px
+			position: absolute
+			bottom: 0px
+			background: #ffffff
+			width: 100%
+			border-bottom-left-radius: 10px
+			border-bottom-right-radius: 10px
+			padding-bottom: 30px
+			h4
+				text-transform: uppercase
+				color: black
+				margin: 0
+				font-family: ProximaNovaCond-Bold
+			h5, .h5
+				font-family: ProximaNovaCond-Bold, sans-serif
+				font-size: 17px
+				color: #ff0059
+				letter-spacing: normal
+				margin: 0px
+			p
+				color: black
+			ul
+				li
+					font-family: ProximaNovaCond-Regular,sans-serif
+					display: block
+					font-size: 16px
+					position: relative
+					padding-left: 24px
+					&:before
+						content: ''
+						font-family: FontAwesome
+						color: #ff0059
+						position: absolute
+						left: 0px
+			img
+				position: absolute
+				bottom: 0px
+				width: initial
+				display: inline-block
+			.pink-btn
+				margin-top: 40px
+
+
+.control-btn
+	display: inline-block
+	width: 40px
+	height: 40px
+	border: solid 2px #62696f
+	border-radius: 50%
+	position: relative
+	text-align: center
+	margin-left: 5px
+	&:hover
+		border-color: #ffffff
+	&:before
+		content: ''
+		font-family: FontAwesome
+		font-size: 31px
+		color: #ffffff
+		left: 0px
+		right: 0px
+		bottom: 0px
+		top: 0px
+		display: inline-block
+		line-height: 34px
+		position: relative
+	&.left-btn:before
+		content: ''
+	&.right-btn:before
+		content: ''
+
 #my-footer
 	margin-top: 1500px
